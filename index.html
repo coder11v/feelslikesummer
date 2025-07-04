@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coyote Crew Mission: Unlock Terminal</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #00FF00;
+    }
+    .clue {
+      border: 1px dashed #00FF00;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+    #message {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🕵️‍♂️ Coyote Crew: Secure Agency Terminal</h1>
+  <p>Agents Khurana and Bajaj, the agency system is under attack! To regain control, you must enter the correct passcode hidden in these clues.</p>
+
+  <div class="clue">
+    <strong>Clue 1:</strong> The passcode starts with the first letter of each agent's surname, in order of seniority.
+  </div>
+  <div class="clue">
+    <strong>Clue 2:</strong> The middle part is the number of successful missions: 1.
+  </div>
+  <div class="clue">
+    <strong>Clue 3:</strong> It ends with the code name of your crew, all in lowercase.
+  </div>
+
+  <p>⚠️ You have only one chance... Choose wisely.</p>
+
+  <input type="password" id="passcode" placeholder="Enter passcode">
+  <button onclick="checkPasscode()">Unlock</button>
+
+  <div id="message"></div>
+
+  <script>
+    function checkPasscode() {
+      const correct = "KB1coyotecrew";
+      const input = document.getElementById("passcode").value;
+      const msg = document.getElementById("message");
+      if (input === correct) {
+        msg.innerHTML = "<h2>✅ Access Granted</h2><p>Bravo, Coyote Crew! The system is back under your control.</p>";
+      } else {
+        msg.innerHTML = "<h2>❌ Access Denied</h2><p>The hackers gain more ground. Mission failed.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
