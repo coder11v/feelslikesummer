@@ -6,42 +6,73 @@
     body {
       background-color: black;
       color: #00FF00;
-      font-family: monospace;
-      padding: 30px;
+      font-family: "Courier New", Courier, monospace;
+      padding: 40px;
+      text-align: center;
     }
-    h1, h2 {
+    h1 {
       color: #00FF00;
+      text-shadow: 0 0 5px #00FF00;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    p, .clue {
+      font-size: 20px;
+      line-height: 1.5;
+      margin: 20px auto;
+      max-width: 600px;
     }
     .clue {
       border: 1px dashed #00FF00;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 15px;
+      text-align: left;
+      box-shadow: 0 0 10px #00FF00;
     }
-    input, button {
-      font-size: 18px;
-      padding: 5px;
-      margin-top: 10px;
+    input {
+      font-size: 20px;
+      padding: 10px;
+      width: 300px;
+      background-color: black;
+      color: #00FF00;
+      border: 1px solid #00FF00;
+      outline: none;
+      margin-top: 15px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: black;
+      color: #00FF00;
+      border: 1px solid #00FF00;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #00FF00;
+      color: black;
     }
     #message {
-      margin-top: 20px;
+      margin-top: 30px;
+      font-size: 22px;
     }
   </style>
 </head>
 <body>
   <h1>🕵️‍♂️ Coyote Crew: Secure Agency Terminal</h1>
-  <p>Agents Khurana and Bajaj, the agency system is under attack! To regain control, you must enter the correct passcode hidden in these clues.</p>
+  <p>Agents Khurana and Bajaj, the system is on the verge of collapse! You must unlock it using the clues below before the hackers take full control.</p>
 
   <div class="clue">
-    <strong>Clue 1:</strong> The passcode starts with the first letter of each agent's surname, in order of seniority.
+    <strong>Clue 1:</strong> Start with the first letter of each agent's surname, in order of seniority.
   </div>
   <div class="clue">
     <strong>Clue 2:</strong> The middle part is the number of successful missions: 1.
   </div>
   <div class="clue">
-    <strong>Clue 3:</strong> It ends with the code name of your crew, all in lowercase.
+    <strong>Clue 3:</strong> Finish with your crew's codename in lowercase.
   </div>
 
-  <p>⚠️ You have only one chance... Choose wisely.</p>
+  <p>⚠️ You have only one chance... Type carefully.</p>
 
   <input type="password" id="passcode" placeholder="Enter passcode">
   <button onclick="checkPasscode()">Unlock</button>
@@ -54,9 +85,9 @@
       const input = document.getElementById("passcode").value;
       const msg = document.getElementById("message");
       if (input === correct) {
-        msg.innerHTML = "<h2>✅ Access Granted</h2><p>Bravo, Coyote Crew! The system is back under your control.</p>";
+        msg.innerHTML = "<h2 style='color:#00FF00; text-shadow:0 0 5px #00FF00;'>✅ Access Granted</h2><p>Bravo, Coyote Crew! The agency system is now safe.</p>";
       } else {
-        msg.innerHTML = "<h2>❌ Access Denied</h2><p>The hackers gain more ground. Mission failed.</p>";
+        msg.innerHTML = "<h2 style='color:red;'>❌ Access Denied</h2><p>The hackers have breached deeper. Mission failed.</p>";
       }
     }
   </script>
